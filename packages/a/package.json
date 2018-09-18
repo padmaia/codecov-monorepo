@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-coverage": "rm -rf coverage/* && nyc yarn test",
+    "report-coverage": "nyc report --reporter=lcov && codecov",
+    "test-ci": "yarn test-coverage && yarn report-coverage"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
